@@ -1,0 +1,59 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgw87anvmd703"]
+
+[ext_resource type="Script" path="res://examples/switch/switch.gd" id="1_5o5xs"]
+[ext_resource type="Texture2D" uid="uid://di8wf4clyd544" path="res://icon.svg" id="1_xpf3q"]
+[ext_resource type="Script" path="res://addons/slate/nodes/slate.gd" id="2_dgb6f"]
+[ext_resource type="PackedScene" uid="uid://3jurh5me7qmg" path="res://addons/slate/debug/debug.tscn" id="3_jmokp"]
+[ext_resource type="Script" path="res://examples/switch/off.gd" id="4_bky8m"]
+[ext_resource type="Script" path="res://examples/switch/a.gd" id="5_1xjb0"]
+[ext_resource type="Script" path="res://examples/switch/on.gd" id="5_qoeai"]
+[ext_resource type="Script" path="res://examples/switch/c.gd" id="8_nxich"]
+[ext_resource type="Script" path="res://examples/switch/e.gd" id="9_k1w0j"]
+
+[node name="Switch" type="Node2D"]
+script = ExtResource("1_5o5xs")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Debug" parent="CanvasLayer" node_paths=PackedStringArray("slate") instance=ExtResource("3_jmokp")]
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+slate = NodePath("../../Slate")
+
+[node name="Light" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(596, 255)
+texture = ExtResource("1_xpf3q")
+
+[node name="Slate" type="Node" parent="."]
+script = ExtResource("2_dgb6f")
+
+[node name="Off" type="Node" parent="Slate"]
+script = ExtResource("4_bky8m")
+
+[node name="A" type="Node" parent="Slate/Off"]
+script = ExtResource("5_1xjb0")
+wait_time = 2.0
+
+[node name="B" type="Node" parent="Slate/Off"]
+script = ExtResource("2_dgb6f")
+
+[node name="On" type="Node" parent="Slate"]
+script = ExtResource("5_qoeai")
+
+[node name="C" type="Node" parent="Slate/On"]
+script = ExtResource("8_nxich")
+wait_time = 0.5
+
+[node name="D" type="Node" parent="Slate/On"]
+script = ExtResource("2_dgb6f")
+
+[node name="E" type="Node" parent="Slate/On/D"]
+script = ExtResource("9_k1w0j")
+wait_time = 0.5
+
+[node name="F" type="Node" parent="Slate/On/D"]
+script = ExtResource("2_dgb6f")

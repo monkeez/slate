@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3jurh5me7qmg"]
+
+[ext_resource type="Script" path="res://addons/slate/debug/debug.gd" id="1_nmk5d"]
+
+[node name="Debug" type="Tree"]
+mouse_filter = 2
+script = ExtResource("1_nmk5d")

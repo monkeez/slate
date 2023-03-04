@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://5ljq76ko6kp0"]
+
+[ext_resource type="Script" path="res://examples/simple/simple.gd" id="1_7v5ks"]
+[ext_resource type="Script" path="res://addons/slate/nodes/slate.gd" id="1_760h3"]
+
+[node name="Simple" type="Node"]
+script = ExtResource("1_7v5ks")
+
+[node name="A" type="Node" parent="."]
+script = ExtResource("1_760h3")
+
+[node name="B" type="Node" parent="."]
+script = ExtResource("1_760h3")
+
+[node name="Node" type="Node" parent="."]
